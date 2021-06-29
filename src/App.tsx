@@ -1,14 +1,16 @@
-import { Button } from "./components/Button";
+import { Home } from "./pages/Home";
+import { NewRoom } from './pages/NewRoom';
+
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import '../src/styles/global.scss'
 
 function App() {
   return (
-    <div>
-      <Button></Button>
-      <Button />
-      <Button />
-      <Button />
-      <Button />
-    </div>
+    <BrowserRouter>
+      <Route path="/" exact component={Home} />
+      <Route path="/rooms/news" component={NewRoom} />
+    </BrowserRouter>
   );
 }
 
