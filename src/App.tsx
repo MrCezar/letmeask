@@ -5,11 +5,15 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import '../src/styles/global.scss'
 
+import { AuthContextProvider } from './contexts/AuthContext'
+
 function App() {
   return (
     <BrowserRouter>
-      <Route path="/" exact component={Home} />
-      <Route path="/rooms/news" component={NewRoom} />
+      <AuthContextProvider>
+        <Route path="/" exact component={Home} />
+        <Route path="/rooms/new" component={NewRoom} />
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }
