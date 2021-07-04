@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 
-import { auth, database, firebase } from '../services/firebase'
+import { database } from '../services/firebase'
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
@@ -8,8 +8,7 @@ import googleIconImg from '../assets/images/google-icon.svg';
 import { Button } from '../components/Button'
 
 import '../styles/auth.scss';
-import { FormEvent, useContext, useState } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
+import { FormEvent, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 
 export function Home() {
@@ -29,7 +28,7 @@ export function Home() {
     async function handleJoinRoom(event: FormEvent) {
         event.preventDefault();
 
-        if (roomCode.trim() == '')
+        if (roomCode.trim() === '')
             return;
 
         const roomRef = await database.ref(`rooms/${roomCode}`).get();
